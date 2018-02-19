@@ -1,0 +1,30 @@
+library(readr)
+library(tidyverse)
+library(quanteda)
+library(ngram)
+
+
+RRCodeURL <- 'https://github.com/seslezak/NLP-Analysis-of-Title-16-of-US-Code-of-Federal-Regulations/blob/master/CFR-2012-title16-vol2-part1633.txt'
+RRCode <- read_file(RRCodeURL)
+RRCode
+Code <- scan('https://github.com/seslezak/NLP-Analysis-of-Title-16-of-US-Code-of-Federal-Regulations/blob/master/CFR-2012-title16-vol2-part1633.txt', what = 'character', sep = '.', quote = "", fill = FALSE)
+CodeTokens <- tokens(Code)
+CodeTokens
+str(CodeTokens)
+RRCode
+string.summary(RRCode)
+RRCodeString <- splitter(RRCode, spacesep = "_")
+string.summary(RRCodeString)
+RRCodeNgrams <- ngram(RRCode, n = 1, sep = " ")
+RRCodeNgrams
+str(RRCodeNgrams)
+RRNgrams <- get.ngrams(RRCodeNgrams)
+RRNgrams
+RRPhraseTable <- get.phrasetable(RRCodeNgrams)
+RRPhraseTable
+entropy <- -(RRPhraseTable$prop * log(RRPhraseTable$prop, 2))
+RRPhraseTable <- cbind(RRPhraseTable, entropy)
+RRPhraseTable
+sum(RRPhraseTable$prop)
+sum(RRPhraseTable$entropy)
+
