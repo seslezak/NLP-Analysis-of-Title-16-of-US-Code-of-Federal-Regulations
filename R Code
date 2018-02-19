@@ -8,10 +8,10 @@ RRCodeURL <- 'https://github.com/seslezak/NLP-Analysis-of-Title-16-of-US-Code-of
 RRCode <- read_file(RRCodeURL)
 RRCode
 Code <- scan('https://github.com/seslezak/NLP-Analysis-of-Title-16-of-US-Code-of-Federal-Regulations/blob/master/CFR-2012-title16-vol2-part1633.txt', what = 'character', sep = '.', quote = "", fill = FALSE)
+str(Code)
 CodeTokens <- tokens(Code)
 CodeTokens
 str(CodeTokens)
-RRCode
 string.summary(RRCode)
 RRCodeString <- splitter(RRCode, spacesep = "_")
 string.summary(RRCodeString)
