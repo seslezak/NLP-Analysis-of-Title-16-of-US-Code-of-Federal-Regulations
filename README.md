@@ -11,4 +11,8 @@ B.  Combine all ngrams into a corpus, and collect the following data:
 2.  The probability of each ngram in the corpus
 3.  The entropy of each ngram in the corpus
 
+The object *Code* satisfies *A1* above.  The object *CodeTokens* satisfies condition *A2*.  The object *RRPhraseTable* satisfies *B* above.
+
+
+
 Please note the original text file used for the analysis is in this Git repo, along with a PDF of the US Code.
