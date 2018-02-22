@@ -3,11 +3,11 @@ library(tidyverse)
 library(quanteda)
 library(ngram)
 
-RRCodeURL <- 'https://github.com/seslezak/NLP-Analysis-of-Title-16-of-US-Code-of-Federal-Regulations/blob/master/CFR-2012-title16-vol2-part1633.txt'
+RRCodeURL <- 'https://github.com/seslezak/NLP-Analysis-of-Title-16-of-US-Code-of-Federal-Regulations/blob/master/CFR-2012-title16-vol2-part1633 UTF8.txt'
 RRCode <- read_file(RRCodeURL)
 RRCode
 str(RRCode)
-Code <- scan('https://github.com/seslezak/NLP-Analysis-of-Title-16-of-US-Code-of-Federal-Regulations/blob/master/CFR-2012-title16-vol2-part1633.txt', what = 'character', sep = '.', quote = "", fill = FALSE)
+Code <- scan('https://github.com/seslezak/NLP-Analysis-of-Title-16-of-US-Code-of-Federal-Regulations/blob/master/CFR-2012-title16-vol2-part1633 UTF8.txt', what = 'character', sep = '.', quote = "", fill = FALSE)
 Code
 str(Code)
 CodeTokens <- tokens(Code, remove_numbers = TRUE, remove_punct = TRUE, remove_symbols = TRUE)
