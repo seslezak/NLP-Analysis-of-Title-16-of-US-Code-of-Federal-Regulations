@@ -2,13 +2,23 @@ library(readr)
 library(tidyverse)
 library(quanteda)
 library(ngram)
+library(textclean)
 
-RRCodeURL <- 'https://github.com/seslezak/NLP-Analysis-of-Title-16-of-US-Code-of-Federal-Regulations/blob/master/CFR-2012-title16-vol2-part1633 UTF8.txt'
+#RRCodeURL <- 'https://github.com/seslezak/NLP-Analysis-of-Title-16-of-US-Code-of-Federal-Regulations/blob/master/CFR-2012-title16-vol2-part1633 UTF8.txt'
+RRCodeURL <- 'C:/Users/Steven/Desktop/CFR-2012-title16-vol2-part1633 UTF8.txt'
 RRCode <- read_file(RRCodeURL)
 RRCode
 str(RRCode)
-Code <- scan('https://github.com/seslezak/NLP-Analysis-of-Title-16-of-US-Code-of-Federal-Regulations/blob/master/CFR-2012-title16-vol2-part1633 UTF8.txt', what = 'character', sep = '.', quote = "", fill = FALSE)
+RRCode <- gsub(',', '', RRCode)
+RRCode <- gsub('[[:punct:]]', '', RRCode)
+RRCode <- gsub('\\d+', '', RRCode)
+str(RRCode)
+#Code <- scan('https://github.com/seslezak/NLP-Analysis-of-Title-16-of-US-Code-of-Federal-Regulations/blob/master/CFR-2012-title16-vol2-part1633 UTF8.txt', what = 'character', sep = '.', quote = "", fill = FALSE)
+Code <- scan('C:/Users/Steven/Desktop/CFR-2012-title16-vol2-part1633 UTF8.txt', what = 'character', sep = '.', quote = "", fill = FALSE)
 Code
+Code <- gsub(',', '', Code)
+Code <- gsub('[[:punct:]]', '', Code)
+Code <- gsub('\\d+', '', Code)
 str(Code)
 CodeTokens <- tokens(Code, remove_numbers = TRUE, remove_punct = TRUE, remove_symbols = TRUE)
 CodeTokens
